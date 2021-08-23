@@ -1,23 +1,20 @@
-import logo from './logo.svg';
+import React, {useEffect} from 'react';
 import './App.css';
+import DataProvider from './DataProvider';
+import Display from './Display';
+import Edit from './Edit';
 
 function App() {
+  useEffect(() => {
+    console.log('%cApp render', 'font-size: 20px')
+  }, [])
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="provider-poc">
+      <DataProvider>
+        <Edit />
+        <Display />
+      </DataProvider>
     </div>
   );
 }
