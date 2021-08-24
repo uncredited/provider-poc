@@ -1,12 +1,9 @@
-import React, { useContext, useEffect } from 'react'
+import React, { useContext } from 'react'
 import { DataContext } from './DataProvider'
 
 export default function Display() {
+    console.log('DISPLAY RENDER')  
     const { wager } = useContext(DataContext)
-
-    useEffect(() => {
-        console.log('Display render')     
-    }, [wager.examined])
 
     return (
         <h3>

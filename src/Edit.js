@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React, { useContext, useMemo } from 'react'
 import { DataContext } from './DataProvider'
 
 export default function Edit(props) {
@@ -9,10 +9,13 @@ export default function Edit(props) {
         setWager({ ...wager, examined: boolVal })
     }
 
-    return (
+    return useMemo(() => {
+        console.log('EDIT RENDER')
+        return (
         <select onChange={handleExaminedChange}>
             <option value={0}>false</option>
             <option value={1}>true</option>
         </select>
-    )
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    )}, [])
 }
